@@ -1,98 +1,55 @@
-#pragma once
 #include <iostream>
-#include <string>
-#include <vector>
-#include <string>
-
+#include "Header.h"
 using namespace std;
 
-// 1.2
-class People1 {
-private:
-    string Name1;
-    int Height1;
-public:
-    People1(const string& name1, int height1);
-    void print1() const;
-};
+int main() {
+    
+    int choice;
+    do {
+        cout << "Выберите задание для запуска:\n";
+        cout << "1. Задание 1.2 "<< endl;
+        cout << "2. Задание 1.3 "<< endl;
+        cout << "3. Задание 2.4 "<< endl;
+        cout << "4. Задание 3.4 "<< endl;
+        cout << "5. Задание 4.5 "<< endl;
+        cout << "6. Задание 5.1 "<< endl;
+        cout << "0. Выход"<< endl;
+        cout << "Ваш выбор: "<< endl;
+        cin >> choice;
+        if (choice <= 0) {
+        cout << "число должно быть положительным"<< endl;
+        return 1;
+    }
+        cin.ignore();
 
-// 1.3
-class Names2 {
-private:
-    string Name2, Surname2, Patronymic2;
-public:
-    Names2(const string& name2, const string& surname2, const string& patronymic2);
-    void print2() const;
-};
+        switch (choice) {
+            case 1:
+                runTask1_2();
+                break;
+            case 2:
+                runTask1_3();
+                break;
+            case 3:
+                runTask2_4();
+                break;
+            case 4:
+                runTask3_4();
+                break;
+            case 5:
+                runTask4_5();
+                break;
+            case 6:
+                runTask5_1();
+                break;
+            case 0:
+                cout << "Выход из программы." << endl;
+                break;
+            default:
+                cout << "Неверный выбор. Попробуйте снова." << endl;
+        }
 
-// 2.4
-class Employee3; // Forward declaration
+        cout << endl;
+    } while (choice != 0);
 
-class Department3 {
-public:
-    string name3;
-    Employee3* manager3;
-    Department3(const string& name3, Employee3* manager3);
-};
-
-class Employee3 {
-public:
-    string name3;
-    Department3* department3;
-    Employee3(const string& name3, Department3* department3 = nullptr);
-    string toString3() const;
-};
-
-// 3.4
-class Department4;
-
-class Employee4 {
-public:
-    string name4;
-    Department4* department4;
-    Employee4(const string& name4, Department4* department4 = nullptr);
-    string toString4() const;
-    vector<Employee4*> getDepartmentEmployees4() const;
-};
-
-class Department4 {
-public:
-    string name4;
-    Employee4* manager4;
-    vector<Employee4*> employees4;
-
-    Department4(const string& name4, Employee4* manager4);
-    void addEmployee4(Employee4* emp4);
-};
-
-// 4.5
-class Names5 {
-private:
-    string Name5, Surname5, Patronymic5;
-public:
-    Names5(const string& name5);
-    Names5(const string& name5, const string& surname5);
-    Names5(const string& name5, const string& surname5, const string& patronymic5);
-    void print5() const;
-};
- 
-// 5.1
-class Pistol6 {
-private:
-    int bullets6;
-public:
-    Pistol6(int initialBullets6);
-    Pistol6();
-    void shoot6();
-    int getBullets6() const;
-};
-
-void runTask1_2();
-void runTask1_3();
-void runTask2_4();
-void runTask3_4();
-void runTask4_5();
-void runTask5_1();
-
-bool isValidName(const string& name);
-bool oshibkibukvi (const string& input);
+    return 0;
+}
